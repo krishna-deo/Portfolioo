@@ -36,9 +36,9 @@ app.use(
 
 /* ── Nodemailer transporter ── */
 const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   connectionTimeout: 30000,
   greetingTimeout: 30000,
   socketTimeout: 30000,
