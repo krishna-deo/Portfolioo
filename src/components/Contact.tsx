@@ -68,15 +68,18 @@ const Contact: React.FC = () => {
     setErrorMsg("");
     try {
       /*
-        BACKEND: calls http://localhost:5000/api/contact
+        BACKEND: calls http://localhost:5000/api/contact || https://portfolioo-7kuv.onrender.com/api/contact (Production)
         Make sure your Express server is running (see server/index.js)
         For production, replace with your deployed API URL
       */
-      const res = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        "https://portfolioo-7kuv.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        },
+      );
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Something went wrong.");
       setStatus("success");
