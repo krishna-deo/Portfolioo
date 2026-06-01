@@ -102,7 +102,7 @@ const Projects: React.FC = () => {
                       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                     */}
                     <img
-                      src="assets/project-preview.png"
+                      src="public/project-preview.png"
                       alt={`${project.title} preview`}
                       className="w-full h-full object-cover"
                       onError={(e) => {

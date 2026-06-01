@@ -393,7 +393,7 @@ const Hero: React.FC = () => {
                 }}
               >
                 <img
-                  src="assets/dp.png"
+                  src="/dp.png"
                   alt="Krishna Deo — Full Stack Developer"
                   className="w-full h-full object-cover object-center"
                   onError={(e) => {
