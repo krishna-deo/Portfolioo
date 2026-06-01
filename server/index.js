@@ -19,7 +19,8 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -33,20 +34,6 @@ app.use(
     allowedHeaders: ["Content-Type"],
   }),
 );
-
-/* ── Nodemailer transporter ── */
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  connectionTimeout: 30000,
-  greetingTimeout: 30000,
-  socketTimeout: 30000,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
 
 /* ── Helpers ── */
 const isValidEmail = (e) =>
@@ -130,7 +117,13 @@ app.post("/api/contact", async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>",
+      to: process.env.CONTACT_EMAIL,
+      reply_to: email,
+      subject: `[Portfolio] ${sSubject}`,
+      html: mailOptions.html,
+    });
     console.log(`✉️  Message from ${sName} <${email}> — ${sSubject}`);
     return res
       .status(200)
