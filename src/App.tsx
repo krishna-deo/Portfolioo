@@ -48,7 +48,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#07090a] relative">
+    <div className="min-h-screen bg-[#07090a] relative overflow-x-hidden">
       {/* Smooth cursor glow — desktop only */}
       <div ref={cursorRef} className="cursor-glow hidden lg:block" />
 

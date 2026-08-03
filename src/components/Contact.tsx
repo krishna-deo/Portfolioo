@@ -72,8 +72,9 @@ const Contact: React.FC = () => {
         Make sure your Express server is running (see server/index.js)
         For production, replace with your deployed API URL
       */
+      const API_URL = import.meta.env.VITE_API_URL || "https://portfolioo-7kuv.onrender.com";
       const res = await fetch(
-        "https://portfolioo-7kuv.onrender.com/api/contact",
+        `${API_URL}/api/contact`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -106,13 +107,13 @@ const Contact: React.FC = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/krishnadeo",
+      value: "linkedin.com/in/krishna-deo-292771319",
       href: contact.linkedin,
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/krishnadeo",
+      value: "github.com/krishna-deo",
       href: contact.github,
     },
     { icon: MapPin, label: "Location", value: contact.location, href: null },

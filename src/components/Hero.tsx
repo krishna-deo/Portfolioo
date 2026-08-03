@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import * as THREE from "three";
 import gsap from "gsap";
+import { contact } from "../data/portfolioData";
 
 /* ── Magnetic button hook ───────────────────────────────── */
 function useMagnetic(strength = 0.3) {
@@ -319,7 +320,7 @@ const Hero: React.FC = () => {
             <div className="hero-fade flex items-center gap-5">
               {/* → Replace # with your GitHub URL */}
               <a
-                href="#"
+                href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl border border-white/8 text-white/30 hover:text-white hover:border-white/22 transition-all duration-300"
@@ -328,7 +329,7 @@ const Hero: React.FC = () => {
               </a>
               {/* → Replace # with your LinkedIn URL */}
               <a
-                href="#"
+                href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-xl border border-white/8 text-white/30 hover:text-emerald-400 hover:border-emerald-700/35 transition-all duration-300"
@@ -345,7 +346,7 @@ const Hero: React.FC = () => {
           {/* ── RIGHT: Photo ─────────────────────────────── */}
           <div
             ref={photoRef}
-            className="flex items-center justify-center lg:justify-end"
+            className="hidden lg:flex items-center justify-center lg:justify-end"
             style={{ opacity: 0 }}
           >
             <div className="relative">

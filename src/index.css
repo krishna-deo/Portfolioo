@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 /* ─── Base ─────────────────────────────────────────────── */
-html { scroll-behavior: auto; } /* Lenis handles smooth scroll */
-body { overflow-x: hidden; }
+html, body {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  background-color: #07090a;
+  color: #ffffff;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 ::selection { background: rgba(16,185,129,0.25); color:#fff; }
 :focus-visible { outline: 2px solid rgba(16,185,129,0.55); outline-offset: 2px; }

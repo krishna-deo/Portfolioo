@@ -1,5 +1,6 @@
 import React from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { contact } from "../data/portfolioData";
 
 const Footer: React.FC = () => (
   <footer
@@ -21,9 +22,9 @@ const Footer: React.FC = () => (
       </div>
       <div className="flex items-center gap-3">
         {[
-          { icon: Github, href: "#" },
-          { icon: Linkedin, href: "#" },
-          { icon: Mail, href: "mailto:krishnadeo@example.com" },
+          { icon: Github, href: contact.github },
+          { icon: Linkedin, href: contact.linkedin },
+          { icon: Mail, href: `mailto:${contact.email}` },
         ].map(({ icon: Icon, href }, i) => (
           <a
             key={i}
